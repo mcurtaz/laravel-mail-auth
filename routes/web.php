@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'GuestController@index')->name('post-index');
+Route::get('/', 'GuestController@index') -> name('post-index');
+Route::get('/show/{id}', 'GuestController@show') -> name('post-show');

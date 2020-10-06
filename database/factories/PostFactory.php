@@ -10,6 +10,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'title'  => $faker -> word(),         
         'body'   => $faker -> text(),     
         'like'   => $faker -> randomNumber(),
-        'tag'    => implode(',', $faker -> words())
+        'tag'    => implode(', ', $faker -> words())
     ];
 });
