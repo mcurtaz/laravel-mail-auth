@@ -27,3 +27,15 @@ Route::post('/update/{id}', 'LoggedController@update') -> name('post-update');
 Route::get('/create', 'LoggedController@create') -> name('post-create');
 
 Route::post('/create', 'LoggedController@store') -> name('post-store');
+
+
+Route::get('/mail_preview', function () {
+
+    $post = App\Post::inRandomOrder() -> first();
+
+    $user = App\User::inRandomOrder() -> first();
+
+    $action = "PROVA";
+
+    return new App\Mail\PostAction($user, $post, $action);
+});

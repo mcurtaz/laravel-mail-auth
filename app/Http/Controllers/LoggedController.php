@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Mail\PostAction;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class LoggedController extends Controller
 {
@@ -17,6 +20,12 @@ class LoggedController extends Controller
         $post = Post::findOrFail($id);
 
         $post -> delete();
+
+        $user = Auth::user();
+
+        $action = "delete";
+
+        Mail::to('admin@gmail.com') -> send(new PostAction($user, $post, $action));
 
         return redirect() -> route('post-index');
     }
