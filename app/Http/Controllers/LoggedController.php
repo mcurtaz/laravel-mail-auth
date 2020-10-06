@@ -45,6 +45,12 @@ class LoggedController extends Controller
 
         $post -> update($data);
 
+        $user = Auth::user();
+
+        $action = "update";
+
+        Mail::to('admin@gmail.com') -> send(new PostAction($user, $post, $action));
+
         return redirect() -> route('post-index');
     }
 
@@ -59,7 +65,13 @@ class LoggedController extends Controller
 
         $data = $request -> all();
 
-        Post::create($data);
+        $post = Post::create($data);
+
+        $user = Auth::user();
+
+        $action = "create";
+
+        Mail::to('admin@gmail.com') -> send(new PostAction($user, $post, $action));
 
         return redirect() -> route('post-index');
     }
