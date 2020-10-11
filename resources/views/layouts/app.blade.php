@@ -33,6 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        {{-- NOTE: Il bottone per creare nuovi post è disponibile soltanto ad utenti registrati --}}
                         @auth
                         <li>
                             <a class="btn btn-primary" href=" {{ route('post-create') }} ">
@@ -45,6 +46,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        {{-- NOTE: guest è esattamente come auth ma al contrario sarebbe come scrive notAuth. Solo in caso di utenti non registrati esegue il codice da guest a endguest --}}
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

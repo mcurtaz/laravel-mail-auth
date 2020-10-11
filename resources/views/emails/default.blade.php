@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Azione Utente</title>
+    {{-- Essendo una mail non è possibile tirarsi dentro ne css ne js. Si può però stilizzare la mail con il tag style --}}
     <style>
         *{
             margin: 0;
@@ -47,6 +48,8 @@
     </style>
 </head>
 <body>
+
+    {{-- corpo della mail. Qua arriveranno $user $action e $post che sono definiti nell'oggetto PostAction e vengono mandati tramite la contruct quando si crea una nuova istanza (nel controller quando si fa new PostAction()) --}}
     <h1>New Action from User</h1>
 
     <ul>
